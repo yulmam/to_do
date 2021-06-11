@@ -1,0 +1,38 @@
+<style>
+    body{
+        background-color : linen;
+    }
+    div{
+        background-color : #58FAF4;
+        padding : 20px;
+        margin : 20px;
+        width : 400px;
+        heigth : 100px;
+        border-radius: 20px;
+        text-align : left;
+    }
+    span{
+        padding : 20px;
+        margin : 20px;
+        width : 300px;
+        heigth : 70px;
+    }
+</style>
+
+
+<center>
+<h1>To Do</h1>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{form.title}}
+    <input type="submit" name="create" value="할일 추가">
+</form>
+{% for task in tasks %}
+    <div>
+        <a class="up" href="{% url 'update_task' task.id %}">변경</a>
+        <a class="del" href="{% url 'delete' task.id %}">삭제</a>
+        <span>{{task}}<span>
+    </div>
+    <br>
+{% endfor %}
+</center>

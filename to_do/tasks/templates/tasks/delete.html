@@ -1,0 +1,18 @@
+<style>
+    body{
+        background-color : linen;
+    }
+    div{
+        display : inline
+    }
+</style>
+<center>
+<h1>Delete</h1>
+<form method='POST' action="">
+    <span>정말로 지우시겠습니까?</span>
+    {% csrf_token %}
+    <input type="submit" name="confirm" value="yes!">
+    <button type="button" onclick='location.href="{% url 'index' %}"' >no!</button>
+</form>
+</div>
+</center>
